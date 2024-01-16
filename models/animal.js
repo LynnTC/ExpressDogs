@@ -5,6 +5,10 @@ const animalSchema = new Schema({
     name:{
         type: String,
     },
+    picture:{
+        type: String,
+        required: true
+    },
     type:{
         type: String,
         required: true
