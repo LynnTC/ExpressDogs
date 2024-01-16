@@ -14,13 +14,13 @@
     <tbody>
         <% animals.forEach(function(a){ %>
             <tr>
-                <td><% a.picture %></td>
-                <td><% a.name %></td>
-                <td><% a.type %></td>
-                <td><% a.breed %></td>
-                <td><% a.vet %></td>
-                <td><% a.vetWhen %></td>
-                <td><% a.foster  %></td>
+                <td><img src=<%= a.picture %>></td>
+                <td><%= a.name %></td>
+                <td><%= a.type %></td>
+                <td><%= a.breed %></td>
+                <td><%= a.vet %></td>
+                <td><%= a.vetWhen %></td>
+                <td><%= a.foster  %></td>
             </tr>
         <% }); %>
     </tbody>

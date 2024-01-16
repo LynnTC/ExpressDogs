@@ -30,7 +30,7 @@ router.get('/logout', function(req, res){
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('home', { title: 'Express' });
 });
 
 module.exports = router;

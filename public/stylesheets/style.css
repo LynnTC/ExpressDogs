@@ -17,3 +17,8 @@ a {
 .login img {
   height: 30px;
 }
+
+img {
+  border-radius: 10px;
+  max-width: 30%;
+}
