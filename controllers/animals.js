@@ -34,8 +34,8 @@ async function create(req,res){
 
 async function show(req, res) {
     try {
-        const animal = await Animal.findbyId(req.params.id)
-        res.redirect(`/animals/${animal._id}`);
+        const animal = await Animal.findById(req.params.id)
+        res.render(`./animals/show`);
     } catch (err) {
         console.error(err);
         res.redirect('/animals');
