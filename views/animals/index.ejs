@@ -13,9 +13,13 @@
     </thead>
     <tbody>
         <% animals.forEach(function(a){ %>
+            <a href='/animals/<%= a._id %>'>
+            <img src=<%= a.picture %>>
+            </a>
             <tr>
-                <td><img src=<%= a.picture %>></td>
+                <a href='/animals/<%= a._id %>'>
                 <td><%= a.name %></td>
+                </a>
                 <td><%= a.type %></td>
                 <td><%= a.breed %></td>
                 <td><%= a.vet %></td>
