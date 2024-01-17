@@ -6,6 +6,11 @@ const commentSchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+    },
     userName: String,
     userAvatar: String
 }, {
@@ -35,9 +40,12 @@ const animalSchema = new Schema({
     },
     foster:{
         type: Boolean,
+    },  
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     },
-    userName: String,
-    userAvatar: String,
     comments: [commentSchema],
 })
 
