@@ -1,33 +1,17 @@
 <%- include('../partials/header') %>
-
-<table>
-    <thead>
-        <tr>
-            <th>Name:</th>
-            <th>Type:</th>
-            <th>Breed:</th>
-            <th>Vet:</th>
-            <th>Vet Date:</th>
-            <th>Foster:</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% animals.forEach(function(a){ %>
+<main class="cards">
+    <% animals.forEach(function(a){ %>
+    <article class="card">
             <a href='/animals/<%= a._id %>'>
             <img src=<%= a.picture %>>
-            </a>
-            <tr>
-                <a href='/animals/<%= a._id %>'>
-                <td><%= a.name %></td>
-                </a>
-                <td><%= a.type %></td>
-                <td><%= a.breed %></td>
-                <td><%= a.vet %></td>
-                <td><%= a.vetWhen %></td>
-                <td><%= a.foster  %></td>
-            </tr>
-        <% }); %>
-    </tbody>
-</table>
+      <div class="text">
+        <h3>Name: <%= a.name %></h3>
+        <p>Type: <%= a.type %></p>
+        <p>Breed: <%= a.breed %></p>
+        <p>Foster: <%= a.foster  %></p>
+      </div>
+    </article>
+    <% }); %>
+</main>
 
 <%- include('../partials/footer') %>

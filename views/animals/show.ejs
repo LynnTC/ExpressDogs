@@ -1,5 +1,17 @@
 <%- include('../partials/header') %>
 
-    <h1>Specific Doggo</h1>
-    
+<main class="cards2">
+    <article class="card2">
+      <img src="<%= animal.picture  %>" alt="<%= animal.name  %>">
+      <div class="text">
+        <h3><%= animal.name %></h3>
+        <p><%= animal.type %></p>
+        <p><%= animal.breed %></p>
+        <p><%= animal.vet %></p>
+        <p><%= animal.vetWhen %></p>
+        <p><%= animal.foster  %></p>
+      </div>
+    </article>
+</main>
+
 <%- include('../partials/footer') %>
