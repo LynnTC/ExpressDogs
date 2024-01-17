@@ -1,8 +1,8 @@
-const animal = require('../models/animal');
 const Animal = require('../models/animal');
 
 module.exports = {
     create,
+    delete: deleteComment,
 }
 
 async function create(req,res){
@@ -16,5 +16,13 @@ async function create(req,res){
     } catch (err) {
         console.log(err);
     }
+    res.redirect(`/animals/${animal._id}`);
+}
+
+async function deleteComment(req,res){
+    const animal = await Animal.findOne({ 'comments._id': req.params.id, 'comments.user': req.user._id });
+    if (!animal) return res.redirect('/animals');
+    animal.comments.remove(req.params.id);
+    await animal.save();
     res.redirect(`/animals/${animal._id}`);
 }

@@ -26,11 +26,16 @@
         <div class="text">
             <h3><%= c.userName  %></h3>
             <p><%= c.content  %></p>
+            <% if (user?._id.equals(c.user)) { %>
+                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                  <button type="submit">X</button>
+                </form>
+              <% } %>
     </article>
 </main>
 <% }); %>
 <% } else { %>
-    <h5>No Comments Yet1</h5>
+    <h5>No Comments Yet</h5>
 <% } %>
 
 <%- include('../partials/footer') %>
