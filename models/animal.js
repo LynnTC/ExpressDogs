@@ -25,7 +25,9 @@ const animalSchema = new Schema({
     },
     foster:{
         type: Boolean,
-    }
+    },
+    userName: String,
+    userAvatar: String
 })
 
 module.exports = mongoose.model('Animal', animalSchema);
