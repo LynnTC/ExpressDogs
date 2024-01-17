@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const commentSchema = new Schema({
+    content:{
+        type: String,
+        required: true
+    },
+    userName: String,
+    userAvatar: String
+}, {
+    timestamps: true
+});
 const animalSchema = new Schema({
     name:{
         type: String,
@@ -27,7 +37,8 @@ const animalSchema = new Schema({
         type: Boolean,
     },
     userName: String,
-    userAvatar: String
+    userAvatar: String,
+    comments: [commentSchema],
 })
 
 module.exports = mongoose.model('Animal', animalSchema);

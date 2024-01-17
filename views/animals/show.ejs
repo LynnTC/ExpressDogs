@@ -13,5 +13,24 @@
       </div>
     </article>
 </main>
+<form id="add-comment" method="POST" action="/animals/<%= animal._id %>/comments">
+    <label>Comment:</label>
+    <textarea name="content"></textarea>
+    <input type="submit" value="Add Comment">
+</form>
+<% if (animal.comments.length) {%>
+    <% animal.comments.forEach(function(c) { %>
+<main class="'cardsComment">
+    <article class="cardComment">
+        <img src="<%= c.userAvatar  %>">
+        <div class="text">
+            <h3><%= c.userName  %></h3>
+            <p><%= c.content  %></p>
+    </article>
+</main>
+<% }); %>
+<% } else { %>
+    <h5>No Comments Yet</h5>
+<% } %>
 
 <%- include('../partials/footer') %>
