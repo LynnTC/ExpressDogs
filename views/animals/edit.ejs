@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+
+<form id="editform" action="/animals/<%= animal._id %>" method="POST">
+    <label>Name:</label>
+    <input type="text" name="name" value="<%= animal.name %>">
+    <label>Picture (Url):</label>
+    <input type="text" name="picture" value="<%= animal.picture %>">
+    <label>Type of animal:</label>
+    <input type="text" name="type" value="<%= animal.type %>">
+    <label>Breed:</label>
+    <input type="text" name="breed" value="<%= animal.breed %>">
+    <label>Has the animal been to the vet yet?</label>
+    <input type="checkbox" name="vet" value="<% animal.vet %>">
+    <label>If so When?</label>
+    <input type="datetime-local" name="vetWhen" value="<%= animal.vetWhen.toISOString().slice(0,16) %>">
+    <label>Does the animal have a foster yet?</label>
+    <input type="checkbox" name="foster" value="<% animal.foster %>">
+    <input type="submit" value="Update Animal">
+</form>
+<%- include('../partials/footer') %>

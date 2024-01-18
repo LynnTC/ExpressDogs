@@ -12,7 +12,7 @@
         <p><%= animal.foster  %></p>
         <% if (user?._id.equals(animal.user)) { %>
             </form>
-            <form action="/animals/<%= animal._id %>/edit?_method=get">
+            <form action="/animals/<%= animal._id %>/edit?_method=GET">
             <button type="submit">Edit Info</button>
             </form>
         <% } %>

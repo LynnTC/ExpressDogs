@@ -5,6 +5,8 @@ module.exports = {
     new: newRescue,
     create,
     show,
+    edit,
+    update,
 }
 
 async function index(req, res){
@@ -42,5 +44,27 @@ async function show(req, res) {
     } catch (err) {
         console.error(err);
         res.redirect('/animals');
+    }
+}
+
+async function edit(req, res){
+    try{
+        const animal = await Animal.findById(req.params.id);
+        res.render('animals/edit', {animal})
+    } catch (err){
+        console.log(err);
+        res.redirect('animals/${animal._id}');
+    }
+}
+async function update(req, res) {
+    try {
+        for (let key in req.body) {
+            if (req.body[key] === '') delete req.body[key];
+        }
+        const animal = await Animal.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        res.redirect(`/animals/${animal._id}`);
+    } catch (err) {
+        console.error(err);
+        res.render('animals/edit', { title: 'Edit Animal', animal: req.body, errorMsg: err.message });
     }
 }
