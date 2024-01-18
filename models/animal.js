@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const commentSchema = new Schema({
-    content:{
+    content: {
         type: String,
         required: true
     },
@@ -17,30 +17,30 @@ const commentSchema = new Schema({
     timestamps: true
 });
 const animalSchema = new Schema({
-    name:{
+    name: {
         type: String,
     },
-    picture:{
-        type: String,
-        required: true
-    },
-    type:{
+    picture: {
         type: String,
         required: true
     },
-    breed:{
+    type: {
+        type: String,
+        required: true
+    },
+    breed: {
         type: String,
     },
-    vet:{
+    vet: {
         type: Boolean,
         required: true
     },
-    vetWhen:{
+    vetWhen: {
         type: Date,
     },
-    foster:{
+    foster: {
         type: Boolean,
-    },  
+    },
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',

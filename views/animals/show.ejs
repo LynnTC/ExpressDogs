@@ -1,48 +1,49 @@
 <%- include('../partials/header') %>
 
 <main class="cards2">
-    <article class="card2">
-      <img src="<%= animal.picture  %>" alt="<%= animal.name  %>">
-      <div class="text">
-        <h3><%= animal.name %></h3>
-        <p><%= animal.type %></p>
-        <p><%= animal.breed %></p>
-        <p><%= animal.vet %></p>
-        <p><%= animal.vetWhen %></p>
-        <p><%= animal.foster  %></p>
-        <% if (user?._id.equals(animal.user)) { %>
-            </form>
-            <form action="/animals/<%= animal._id %>/edit?_method=GET">
-            <button type="submit">Edit Info</button>
-            </form>
-        <% } %>
-      </div>
-    </article>
+    <article class="card2 <%= animal.foster ? 'foster-true' : 'foster-false' %>">
+    <img src="<%= animal.picture  %>" alt="<%= animal.name  %>">
+    <div class="text">
+      <h3><%= animal.name %></h3>
+      <p>Animal: <%= animal.type %></p>
+      <p>Breed:<%= animal.breed %></p>
+      <p>Vet Visit: <%= animal.vet %> <%= animal.vetWhen.toLocaleString() %></p>
+      <p>Foster Status:<%= animal.foster  %></p>
+      <% if (user?._id.equals(animal.user)) { %>
+      </form>
+      <form action="/animals/<%= animal._id %>/edit?_method=GET">
+        <button type="submit">Edit Info</button>
+      </form>
+      <% } %>
+    </div>
+  </article>
 </main>
+<% if (user) { %>
 <form id="add-comment" method="POST" action="/animals/<%= animal._id %>/comments">
-    <label>Comment:</label>
-    <textarea name="content"></textarea>
-    <input type="submit" value="Add Comment">
+  <label>Comment:</label>
+  <textarea name="content"></textarea>
+  <input type="submit" value="Add Comment">
 </form>
+<% } %>
 <% if (animal.comments.length) {%>
-    <% animal.comments.forEach(function(c) { %>
+<% animal.comments.forEach(function(c) { %>
 <main class="'cardsComment">
-    <article class="cardComment">
-        <img src="<%= c.userAvatar  %>">
-        <div class="text">
-            <h3><%= c.userName  %></h3>
-            <p><%= c.content  %></p>
-            <% if (user?._id.equals(c.user)) { %>
-                </form>
-                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                  <button type="submit">X</button>
-                </form>
-              <% } %>
-    </article>
+  <article class="cardComment">
+    <img src="<%= c.userAvatar  %>">
+    <div class="text">
+      <h3><%= c.userName  %></h3>
+      <p><%= c.content  %></p>
+      <% if (user?._id.equals(c.user)) { %>
+      </form>
+      <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+        <button type="submit">X</button>
+      </form>
+      <% } %>
+  </article>
 </main>
 <% }); %>
 <% } else { %>
-    <h5>No Comments Yet</h5>
+<h5>No Comments Yet</h5>
 <% } %>
 
 <%- include('../partials/footer') %>

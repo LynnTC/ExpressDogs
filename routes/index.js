@@ -17,13 +17,13 @@ router.get('/oauth2callback', passport.authenticate(
   }
 ));
 
-router.get('/logout', function(req, res){
-  req.logout(function() {
+router.get('/logout', function (req, res) {
+  req.logout(function () {
     res.redirect('/');
   });
 });
 
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('home', { title: 'Express' });
 });
 

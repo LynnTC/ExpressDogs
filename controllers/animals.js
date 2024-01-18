@@ -9,31 +9,31 @@ module.exports = {
     update,
 }
 
-async function index(req, res){
-    const animals =  await Animal.find({});
-    res.render('animals/index', { title: 'All Animals', animals});
+async function index(req, res) {
+    const animals = await Animal.find({});
+    res.render('animals/index', { title: 'All Animals', animals });
 }
 
-function newRescue(req, res){
-    res.render('animals/new', {title: 'Add Animal', errorMsg: ''});
+function newRescue(req, res) {
+    res.render('animals/new', { title: 'Add Animal', errorMsg: '' });
 }
 
-async function create(req,res){
+async function create(req, res) {
     req.body.vet = !!req.body.vet;
     req.body.foster = !!req.body.foster;
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
     req.body.userAvatar = req.user.avatar;
-    for (let key in req.body){
+    for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
     }
     const animal = new Animal(req.body);
     try {
         const animal = await Animal.create(req.body);
         res.redirect(`/animals/${animal._id}`);
-    } catch(err){
+    } catch (err) {
         console.error(err);
-        res.render('animals/new', {errorMsg: err.message});
+        res.render('animals/new', { errorMsg: err.message });
     }
 }
 
@@ -47,11 +47,11 @@ async function show(req, res) {
     }
 }
 
-async function edit(req, res){
-    try{
+async function edit(req, res) {
+    try {
         const animal = await Animal.findById(req.params.id);
-        res.render('animals/edit', {animal})
-    } catch (err){
+        res.render('animals/edit', { animal })
+    } catch (err) {
         console.log(err);
         res.redirect('animals/${animal._id}');
     }
