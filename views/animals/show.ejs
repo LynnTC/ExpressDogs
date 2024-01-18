@@ -10,6 +10,12 @@
         <p><%= animal.vet %></p>
         <p><%= animal.vetWhen %></p>
         <p><%= animal.foster  %></p>
+        <% if (user?._id.equals(animal.user)) { %>
+            </form>
+            <form action="/animals/<%= animal._id %>/edit?_method=get">
+            <button type="submit">Edit Info</button>
+            </form>
+        <% } %>
       </div>
     </article>
 </main>
@@ -27,6 +33,7 @@
             <h3><%= c.userName  %></h3>
             <p><%= c.content  %></p>
             <% if (user?._id.equals(c.user)) { %>
+                </form>
                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                   <button type="submit">X</button>
                 </form>
