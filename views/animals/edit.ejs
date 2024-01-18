@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-<form id="editform" action="/animals/<%= animal._id %>" method="POST">
+<form id="newform" action="/animals/<%= animal._id %>" method="POST">
   <label>Name:</label>
   <input type="text" name="name" value="<%= animal.name %>">
   <label>Picture (Url):</label>
@@ -10,11 +10,12 @@
   <label>Breed:</label>
   <input type="text" name="breed" value="<%= animal.breed %>">
   <label>Has the animal been to the vet yet?</label>
-  <input type="checkbox" name="vet" value="<% animal.vet %>">
+  <input type="checkbox" name="vet" <%= animal.vet ? "checked" : "" %>>
   <label>If so When?</label>
   <input type="datetime-local" name="vetWhen" value="<%= animal.vetWhen?.toLocaleString() %>">
   <label>Does the animal have a foster yet?</label>
   <input type="checkbox" name="foster" <%= animal.foster ? "checked" : "" %>>
+  <label></label>
   <input type="submit" value="Update Animal">
 </form>
 <%- include('../partials/footer') %>

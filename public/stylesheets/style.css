@@ -1,6 +1,8 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: rgba(170, 0, 212, 0.199);
+  margin: 0;
+  height: 100vh;
 }
 
 a {
@@ -36,12 +38,12 @@ img{
 }
 
 .card2 {
-  width: 800px;
-  margin: 10px;
+  width: 400px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   background-color: azure;
+  margin: 10px;
 }
 
 .card2 img {
@@ -99,15 +101,28 @@ img{
   width: 100%;
 }
 
-.cardComment  {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
+.logoimg{
+  max-width: 100vh;
 }
 
+main{
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+}
+
+.showBody {
+  margin: 0;
+  display:grid;
+  padding-left: 10px;
+  grid-template-columns: auto 2fr;
+  grid-template-rows: 1fr;
+  flex-direction: column;
+  gap: 15px;
+}
 .cardComment  {
-  width: 200px;
+  display: flex;
+  width: 600px;
   margin: 10px;
   border: 1px solid #ccc;
   box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
@@ -116,15 +131,21 @@ img{
 }
 
 .cardComment  img {
+  padding: 15px;
   border-radius: 50%;
   height: 30px;
-  margin-right: 10px;
 }
 
 .cardComment  .text {
   padding: 0 20px 20px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
 }
 
+.cardComment p {
+  padding: 0 15px;
+}
 
 body > nav {
   grid-area: nav;
@@ -173,3 +194,9 @@ nav > a.active {
   .foster-false {
     background-color: rgba(226, 75, 75, 0.363);
   }
+
+#newform {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, minmax(auto, 22rem));
+}
