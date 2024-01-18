@@ -12,9 +12,9 @@
   <label>Has the animal been to the vet yet?</label>
   <input type="checkbox" name="vet" value="<% animal.vet %>">
   <label>If so When?</label>
-  <input type="datetime-local" name="vetWhen" value="<%= animal.vetWhen.toISOString().slice(0,16) %>">
+  <input type="datetime-local" name="vetWhen" value="<%= animal.vetWhen?.toLocaleString() %>">
   <label>Does the animal have a foster yet?</label>
-  <input type="checkbox" name="foster" value="<% animal.foster %>">
+  <input type="checkbox" name="foster" <%= animal.foster ? "checked" : "" %>>
   <input type="submit" value="Update Animal">
 </form>
 <%- include('../partials/footer') %>

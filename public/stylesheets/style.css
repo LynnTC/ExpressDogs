@@ -99,6 +99,33 @@ img{
   width: 100%;
 }
 
+.cardComment  {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.cardComment  {
+  width: 200px;
+  margin: 10px;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  background-color: azure;
+}
+
+.cardComment  img {
+  border-radius: 50%;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.cardComment  .text {
+  padding: 0 20px 20px;
+}
+
+
 body > nav {
   grid-area: nav;
   background-color: #87e2de;

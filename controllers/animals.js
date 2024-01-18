@@ -61,6 +61,8 @@ async function update(req, res) {
         for (let key in req.body) {
             if (req.body[key] === '') delete req.body[key];
         }
+        req.body.vet = !!req.body.vet;
+        req.body.foster = !!req.body.foster;
         const animal = await Animal.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.redirect(`/animals/${animal._id}`);
     } catch (err) {

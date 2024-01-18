@@ -7,7 +7,7 @@
       <h3><%= animal.name %></h3>
       <p>Animal: <%= animal.type %></p>
       <p>Breed:<%= animal.breed %></p>
-      <p>Vet Visit: <%= animal.vet %> <%= animal.vetWhen.toLocaleString() %></p>
+      <p>Vet Visit: <%= animal.vet %> <%= animal.vetWhen?.toLocaleString() %></p>
       <p>Foster Status:<%= animal.foster  %></p>
       <% if (user?._id.equals(animal.user)) { %>
       </form>
@@ -27,7 +27,7 @@
 <% } %>
 <% if (animal.comments.length) {%>
 <% animal.comments.forEach(function(c) { %>
-<main class="'cardsComment">
+<main class="'cardComment">
   <article class="cardComment">
     <img src="<%= c.userAvatar  %>">
     <div class="text">
