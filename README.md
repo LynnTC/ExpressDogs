@@ -1,4 +1,4 @@
-# <Phoenix Remix Roster>
+# Phoenix Remix Roster
 A tool to track the status of dogs currently in the rescue. Helping to track dog temperment, vet visits, and foster status
 
 # Screenshot
