@@ -1,7 +1,7 @@
 # Phoenix Remix Roster
 A tool to track the status of dogs currently in the rescue. Helping to track dog temperment, vet visits, and foster status
 
-# Screenshot
+# Screenshots
 
 <img src="https://imgur.com/sZR3zfx.png">
 <img src="https://imgur.com/mU3QlYB.png">
