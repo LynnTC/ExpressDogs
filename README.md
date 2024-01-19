@@ -19,6 +19,7 @@ A tool to track the status of dogs currently in the rescue. Helping to track dog
 # Getting Started
 
 [Click to View Project Planning](https://trello.com/b/jcLDSR0w/phoenix-remix-roster)
+
 [Click to View Site](https://project2-63875d05076a.herokuapp.com/)
 
 # Next Steps
