@@ -13,7 +13,7 @@ A tool to track the status of dogs currently in the rescue. Helping to track dog
 - HTML
 - CSS
 - Express
-- Mongoose
+- MongoDB
 - Google OAuth
 
 # Getting Started
